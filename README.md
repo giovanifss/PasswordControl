@@ -1,3 +1,10 @@
+## Problems with library
+I'm trying really hard but I'm unable to identify the error. It's my first gem and I'm having problems to understand the structure.
+As you can see is the tests running 'rspec', the initialize call always return a nil object...
+I promisse I'll continue searching for the bug and how I can resolve this.
+If you can help, please send a pull request haha :/
+Thanks!
+
 ## HashControl
 
 [![Coverage Status](https://coveralls.io/repos/giovanifss/PasswordControl/badge.svg?branch=master&service=github)](https://coveralls.io/github/giovanifss/PasswordControl?branch=master)
