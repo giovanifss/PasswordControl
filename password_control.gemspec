@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Giovani Ferreira"]
   spec.email         = ["silva.giovanif@gmail.com"]
 
-  spec.summary       = %q{A high level ruby library for manage and secure passwords}
+  spec.summary       = %q{A high level ruby library for manage and secure passwords. Checkout the source code!!!}
   spec.description   = %q{The library is with some problems now, I'm trying really hard to solve, but I'm having problems to understand the gem's structure. Please look at source code on github: https://github.com/giovanifss/PasswordControl}
   spec.homepage      = "https://github.com/giovanifss/PasswordControl"
   spec.license	     = "LGPL"
