@@ -1,7 +1,5 @@
 # Copyright (c) 2015 Giovani Ferreira Silvério da Silva.
 
-require "password_control/version"
-
 module PasswordControl
 
   require_relative "password_control/scrypt/ScryptHash"
@@ -68,5 +66,4 @@ module PasswordControl
     end
 
   end
-
 end
