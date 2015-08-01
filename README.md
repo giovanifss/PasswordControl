@@ -1,7 +1,7 @@
 ## HashControl
 
-[![Coverage Status](https://coveralls.io/repos/giovanifss/HashControl/badge.svg?branch=master&service=github)](https://coveralls.io/github/giovanifss/HashControl?branch=master)
-[![Build Status](https://travis-ci.org/giovanifss/HashControl.svg?branch=master)](https://travis-ci.org/giovanifss/HashControl)
+[![Coverage Status](https://coveralls.io/repos/giovanifss/PasswordControl/badge.svg?branch=master&service=github)](https://coveralls.io/github/giovanifss/PasswordControl?branch=master)
+[![Build Status](https://travis-ci.org/giovanifss/PasswordControl.svg)](https://travis-ci.org/giovanifss/PasswordControl)
 
 
 A high level ruby library for password hash control.
