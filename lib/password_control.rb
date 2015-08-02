@@ -2,12 +2,12 @@
 
 module PasswordControl
 
-  require_relative "password_control/scrypt/ScryptHash"
-  require_relative "password_control/sha/SHA256"
-  require_relative "password_control/sha/SHA384"
-  require_relative "password_control/sha/SHA512"
-  require_relative "password_control/md5/MD5"
-  require_relative "password_control/bcrypt/BcryptHash"
+  require "password_control/scrypt/ScryptHash"
+  require "password_control/sha/SHA256"
+  require "password_control/sha/SHA384"
+  require "password_control/sha/SHA512"
+  require "password_control/md5/MD5"
+  require "password_control/bcrypt/BcryptHash"
 
   class PassControl
 
