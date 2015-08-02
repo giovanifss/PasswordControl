@@ -76,7 +76,8 @@ Some other algorithms may return the generate salt together.
 
 For compare in the future, get the HashMap stored in database and pass as argument to PassControl:
 ```ruby
-# passControl = PasswordControl::PassControl.new HashMap_IN_DATABASE
+passControl = PasswordControl::PassControl.new HashMap_IN_DATABASE
+
 passControl = PasswordControl::PassControl.new {:secret => "$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy", :algorithm => "bcrypt"}
 ```
 
