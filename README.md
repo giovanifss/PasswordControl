@@ -1,7 +1,9 @@
 # HashControl
 
+[![Gem Version](https://badge.fury.io/rb/password_control.svg)](http://badge.fury.io/rb/password_control)
 [![Coverage Status](https://coveralls.io/repos/giovanifss/PasswordControl/badge.svg?branch=master&service=github)](https://coveralls.io/github/giovanifss/PasswordControl?branch=master)
 [![Build Status](https://travis-ci.org/giovanifss/PasswordControl.svg)](https://travis-ci.org/giovanifss/PasswordControl)
+
 
 A high level ruby library for control hash algorithms. Designed to make possible to everybody secure the passwords of your clients with any knowledge about security.
 
