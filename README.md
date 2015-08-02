@@ -1,4 +1,4 @@
-## HashControl
+# HashControl
 
 [![Coverage Status](https://coveralls.io/repos/giovanifss/PasswordControl/badge.svg?branch=master&service=github)](https://coveralls.io/github/giovanifss/PasswordControl?branch=master)
 [![Build Status](https://travis-ci.org/giovanifss/PasswordControl.svg)](https://travis-ci.org/giovanifss/PasswordControl)
@@ -46,7 +46,7 @@ This library supports some algorithms (see algorithms supported section). You ca
 
 ```ruby
  # algorithms: sha256, sha384, sha512, scrypt, bcrypt
-passControl = PasswordControl::PassControl.new :secret => "User password", :algorithm => "Your selected algorithm"
+passControl = PasswordControl::PassControl.new :secret => "User password", :algorithm => "Your option"
 ```
 
 For example, let's set scrypt as our algorithm:
