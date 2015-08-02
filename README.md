@@ -33,13 +33,14 @@ Or install it yourself as:
 
 ## Usage
 
-- Hashing a password:
+#### Hashing a password:
+
 This library was structured for simplicity. To Hash a password with a strong algorithm (bcrypt), you just need to:
 ```ruby
 passControl = PasswordControl::PassControl.new :secret => "The user password"
 ```
 
-- Setting the desired hash algorithm for the library:
+#### Setting the desired hash algorithm for the library:
 
 This library supports some algorithms (see algorithms supported section). You can specify the algorithm for use at the time of instantiation:
 
@@ -55,7 +56,7 @@ passControl = PasswordControl::PassControl.new :secret => "User password", :algo
 ```
 Now the library will use the scrypt algorithm to hash this secret.
 
-- Saving data:
+#### Saving data:
 
 The library need some informations of the hash process to comparisons in the future. To store this informations in database, you will need to call prepareForSave() method:
 ```ruby
@@ -71,7 +72,7 @@ For example:
 
 Some other algorithms may return the generate salt together.
 
-- Restoring from database:
+#### Restoring from database:
 
 For compare in the future, get the HashMap stored in database and pass as argument to PassControl:
 ```ruby
@@ -79,7 +80,7 @@ For compare in the future, get the HashMap stored in database and pass as argume
 passControl = PasswordControl::PassControl.new {:secret => "$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy", :algorithm => "bcrypt"}
 ```
 
-- Comparison:
+#### Comparison:
 
 And for compare the hash with the user password, simple use funcion ==
 ```ruby
@@ -88,7 +89,7 @@ passControl == "user password"
 
 As simple as it sounds!
 
-- Salt:
+#### Salt:
 
 The password_control gem will take care of strong salt generation for each hashing process.
 
