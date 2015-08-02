@@ -63,9 +63,7 @@ The library need some informations of the hash process to comparisons in the fut
 passControl.prepareForSave()
 ```
 
-This method will return all the informations needed for library in a HashMap style.
-
-For example:
+This method will return all the informations needed for library in a HashMap style. For example:
 ```ruby
 {:secret => "$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy", :algorithm => "bcrypt"}
 ```
@@ -102,7 +100,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/giovanifss/HashControl.
+Bug reports and pull requests are welcome on GitHub at https://github.com/giovanifss/PasswordControl.
 
 1. Fork it (https://github.com/giovanifss/HashControl/fork)
 2. Create your feature branch  ('git checkout -b my-feature')
