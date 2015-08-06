@@ -13,6 +13,7 @@ class BcryptHash
 	def initialize password
 		# Check if the entry is a valid bcrypt hash
 		begin
+			# A auxiliar variable is needed to don't affect the rescue case
 			aux = BCrypt::Password.new(password)
 			@hash = aux
 		rescue
@@ -25,8 +26,7 @@ class BcryptHash
 	def ==(toCompare)
 		return @hash == toCompare
 	end
-	alias_method :is_password?, :==		# Multiple names for this method
-
+	
 	# Return all informations needed from hash
 	def prepareForSave
 		return {:algorithm => "bcrypt", :secret => @hash}

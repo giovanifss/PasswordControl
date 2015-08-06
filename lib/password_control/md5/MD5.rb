@@ -1,8 +1,8 @@
 # Copyright (c) 2015 Giovani Ferreira Silvério da Silva.
 
-# MD5 implementation, the use is recommended only for integrity
+# MD5 implementation - only recommended for integrity stuffs - and maybe hahahaha
+# MD5 is now an outdated algorithm
 require 'openssl'
-
 
 class MD5
 
@@ -11,17 +11,17 @@ class MD5
 	# Text is required, salt is optional
 	def initialize text, salt = nil
 		# Generate a new salt if salt is nil
+		# I think it can be done in a better way... the salt is always generated :/
 		@salt = salt ||= generateSalt
 
 		# If the given text isn't a valid hash, a new one is generated
-		isValidHash(text) ? @hash = text : @hash = Digest::MD5.hexdigest(@salt + text)
+		isValidHash?(text) ? @hash = text : @hash = Digest::MD5.hexdigest(@salt + text)
 	end
 
 	# Compare a given text (after hashing) with the hash
 	def ==(toCompare)
 		return Digest::MD5.hexdigest(@salt + toCompare) == @hash
 	end
-	alias_method :is_password?, :==	# Multiple names for this method
 
 	# Return all informations needed from hash
 	def prepareForSave
@@ -33,7 +33,7 @@ class MD5
 
 	# Generate a new Salt
 	def generateSalt
-		# Return a aleatory 32 bit sequence
+		# Return a aleatory 32 bytes sequence
 		return OpenSSL::Random.random_bytes(32).unpack('H*').first.rjust(16,'0')
 	end
 
@@ -41,6 +41,5 @@ class MD5
 	def isValidHash? hash
 		return hash.match("[a-fA-F0-9]{32}") != nil
 	end
-	alias_method :isValidHash, :isValidHash? # multiple names for this method
 
 end

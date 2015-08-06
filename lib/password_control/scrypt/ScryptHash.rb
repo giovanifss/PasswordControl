@@ -13,7 +13,7 @@ class ScryptHash
 	def initialize password
 		# Check if the text is a valid scrypt hash
 		begin
-			# Using an auxiliar var for avoid problems writting on @hash
+			# Using an auxiliar var for avoid problems writting on @hash in rescue case
 			aux = SCrypt::Password.new(password)
 			@hash = aux
 		rescue
@@ -26,7 +26,6 @@ class ScryptHash
 	def ==(toCompare)
 		return @hash == toCompare
 	end
-	alias_method :is_password?, :==		# Multiple names
 
 	# Return all informations needed from hash
 	def prepareForSave
