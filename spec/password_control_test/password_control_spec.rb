@@ -38,6 +38,28 @@ describe PasswordControl do
 			@passControl = PasswordController.new :secret => "Open source o/", :algorithm => "Sha512"
 			expect(@passControl.prepareForSave[:algorithm]).to eql("sha512")
 		end
+	end
+
+	context "PasswordControl Equal Methods Test" do
+		it "Comparing with default method name" do
+			@passControl = PasswordController.new :secret => "this will be hashed", :algorithm => "whatever"
+			# now this password is a big hash
+			# puts @passControl.secret # I don't know if is right to print during tests, but just to prove
+
+			# Comparing with the default method name "=="
+			expect(true).to eql(@passControl == "this will be hashed")
+			expect(false).to eql(@passControl == "this will be hashed again")
+		end
+
+		it "Comparing with another method name" do
+			@passControl = PasswordController.new :secret => "Are you understanding well?", :algorithm => "whatever"
+			# now this password is a big hash
+			# puts @passControl.secret # I don't know if is right to print during tests, but just to prove
+
+			# Comparing with the another method name "is_password?"
+			expect(true).to eql(@passControl.is_password? "Are you understanding well?")
+			expect(false).to eql(@passControl.is_password? "Send me a feedback :D")
+		end
 
 	end
 end

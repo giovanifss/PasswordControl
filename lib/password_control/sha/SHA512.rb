@@ -12,14 +12,13 @@ class SHA512
 		# Generate a new salt if salt is nil
 		@salt = salt ||= generateSalt
 		# If the given text isn't a sha512 valid hash, a new one is generated
-		isValidHash(text) ? @hash = text : @hash = Digest::SHA512.hexdigest(@salt + text)
+		isValidHash?(text) ? @hash = text : @hash = Digest::SHA512.hexdigest(@salt + text)
 	end
 
 	# Compare a given text to a sha384 hash
 	def ==(toCompare)
 		return Digest::SHA512.hexdigest(@salt + toCompare) == @hash
 	end
-	alias_method :is_password?, :==	# Multiple names for this method
 
 	# Return all informations needed from hash
 	def prepareForSave
@@ -39,6 +38,5 @@ class SHA512
 	def isValidHash? hash
 		return hash.match("[a-fA-F0-9]{40}") != nil
 	end
-	alias_method :isValidHash, :isValidHash? # Multiple names for this method
 
 end
