@@ -102,13 +102,15 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/giovanifss/PasswordControl.
-
 1. Fork it (https://github.com/giovanifss/PasswordControl/fork)
 2. Create your feature branch  ('git checkout -b my-feature')
 3. Commit your changes ('git commit -am "add my feature"')
 4. Push to the branch ('git push origin my-feature')
 5. Create a Pull Request
+
+
+
+Bug reports and pull requests are welcome on GitHub at https://github.com/giovanifss/PasswordControl.
 
 ## License
 This library is under LGPL license, it means:
