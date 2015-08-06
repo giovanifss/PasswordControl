@@ -34,8 +34,8 @@ Or install it yourself as:
 
 bcrypt is the default algorithm, if you don't select or select wrong an algorithm, bcrypt will be used.
 ```ruby
-passControl = PasswordControl::PassControl.new :secret => "The user password" # Optional :algorithm => "The desired algorithm"
-passControl = PasswordControl::PassControl.new :secret => "User password", :algorithm => "scrypt"
+passControl = PasswordController.new :secret => "The user password" # Optional :algorithm => "The desired algorithm"
+passControl = PasswordController.new :secret => "User password", :algorithm => "scrypt"
 ```
 The HashControl will take care of the hashing process.
 
@@ -47,7 +47,7 @@ This function will return all information needed for a future comparison.
 
 For compare in the future, get the hashmap stored in database and pass as argument to HashControl:
 ```ruby
-passControl = PasswordControl::PassControl.new DATA_IN_DATABASE
+passControl = PasswordController.new DATA_IN_DATABASE
 ```
 And for compare the hash with the user password, simple use funcion ==
 ```ruby
