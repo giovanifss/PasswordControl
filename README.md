@@ -1,10 +1,13 @@
-## HashControl
+# HashControl
 
+[![Gem Version](https://badge.fury.io/rb/password_control.svg)](http://badge.fury.io/rb/password_control)
 [![Coverage Status](https://coveralls.io/repos/giovanifss/PasswordControl/badge.svg?branch=master&service=github)](https://coveralls.io/github/giovanifss/PasswordControl?branch=master)
 [![Build Status](https://travis-ci.org/giovanifss/PasswordControl.svg)](https://travis-ci.org/giovanifss/PasswordControl)
 
 
-A high level ruby library for password hash control.
+A high level ruby library for control hash algorithms. Designed to make possible to everybody secure the passwords of your clients with any knowledge about security.
+
+## Algorithms supported
 
 This library support and abstract the following hash algorithm:
 - Scrypt - from gem: https://rubygems.org/gems/scrypt/versions/2.0.2
@@ -32,28 +35,64 @@ Or install it yourself as:
 
 ## Usage
 
-bcrypt is the default algorithm, if you don't select or select wrong an algorithm, bcrypt will be used.
+#### Hashing a password:
+
+This library was structured for simplicity. To Hash a password with a strong algorithm (bcrypt), you just need to:
 ```ruby
-passControl = PasswordController.new :secret => "The user password" # Optional :algorithm => "The desired algorithm"
+passControl = PasswordController.new :secret => "The user password"
+```
+
+#### Setting the desired hash algorithm for the library:
+
+This library supports some algorithms (see algorithms supported section). You can specify the algorithm for use at the time of instantiation:
+
+```ruby
+ # algorithms: sha256, sha384, sha512, scrypt, bcrypt
+passControl = PasswordController.new :secret => "User password", :algorithm => "Your option"
+```
+
+For example, let's set scrypt as our algorithm:
+
+```ruby
 passControl = PasswordController.new :secret => "User password", :algorithm => "scrypt"
 ```
-The HashControl will take care of the hashing process.
+Now the library will use the scrypt algorithm to hash this secret.
 
-For save the data in database, use the prepareForSave() function:
+#### Saving data:
+
+The library need some informations of the hash process to comparisons in the future. To store this informations in database, you will need to call prepareForSave() method:
 ```ruby
 passControl.prepareForSave()
 ```
-This function will return all information needed for a future comparison.
 
-For compare in the future, get the hashmap stored in database and pass as argument to HashControl:
+This method will return all the informations needed for library in a HashMap style. For example:
 ```ruby
-passControl = PasswordController.new DATA_IN_DATABASE
+{:secret => "$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy", :algorithm => "bcrypt"}
 ```
+
+Some other algorithms may return the generate salt together.
+
+#### Restoring from database:
+
+For compare in the future, get the HashMap stored in database and pass as argument to PassControl:
+```ruby
+passControl = PasswordController.new HASHMAP_IN_DATABASE
+
+passControl = PasswordController.new {:secret => "$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy", :algorithm => "bcrypt"}
+```
+
+#### Comparison:
+
 And for compare the hash with the user password, simple use funcion ==
 ```ruby
 passControl == "user password"
 ```
+
 As simple as it sounds!
+
+#### Salt:
+
+The password_control gem will take care of strong salt generation for each hashing process.
 
 ## Development
 
@@ -63,9 +102,9 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/giovanifss/HashControl.
+Bug reports and pull requests are welcome on GitHub at https://github.com/giovanifss/PasswordControl.
 
-1. Fork it (https://github.com/giovanifss/HashControl/fork)
+1. Fork it (https://github.com/giovanifss/PasswordControl/fork)
 2. Create your feature branch  ('git checkout -b my-feature')
 3. Commit your changes ('git commit -am "add my feature"')
 4. Push to the branch ('git push origin my-feature')
