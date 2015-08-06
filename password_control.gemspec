@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["silva.giovanif@gmail.com"]
 
   spec.summary       = %q{A high level ruby library for manage and secure passwords.}
-  spec.description   = %q{}
+  spec.description   = %q{A high level security library designed to make possible to everybody secure the password of your clients with any knowledge about security}
   spec.homepage      = "https://github.com/giovanifss/PasswordControl"
   spec.license	     = "LGPL"
 
