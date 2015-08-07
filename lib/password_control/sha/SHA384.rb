@@ -11,6 +11,7 @@ class SHA384
 	def initialize text, salt = nil
 		# Generate a new salt if salt is nil
 		@salt = salt ||= geraSalt
+
 		# If the given text isn't a sha384 valid hash, a new one is generated
 		isValidHash?(text) ? @hash = text : @hash = Digest::SHA384.hexdigest(@salt + text)
 	end

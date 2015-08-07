@@ -11,6 +11,7 @@ class SHA256
 	def initialize text, salt = nil
 		# Generate a new salt if salt is nil
 		@salt = salt ||= generateSalt
+
 		# If the given text isn't a sha256 valid hash, a new one is generated
 		isValidHash?(text) ? @hash = text : @hash = Digest::SHA256.hexdigest(@salt + text)
 	end

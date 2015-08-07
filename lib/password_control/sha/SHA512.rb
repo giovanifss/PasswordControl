@@ -11,6 +11,7 @@ class SHA512
 	def initialize text, salt = nil
 		# Generate a new salt if salt is nil
 		@salt = salt ||= generateSalt
+
 		# If the given text isn't a sha512 valid hash, a new one is generated
 		isValidHash?(text) ? @hash = text : @hash = Digest::SHA512.hexdigest(@salt + text)
 	end
