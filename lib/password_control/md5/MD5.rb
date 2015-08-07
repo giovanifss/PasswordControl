@@ -11,7 +11,6 @@ class MD5
 	# Text is required, salt is optional
 	def initialize text, salt = nil
 		# Generate a new salt if salt is nil
-		# I think it can be done in a better way... the salt is always generated :/
 		@salt = salt ||= generateSalt
 
 		# If the given text isn't a valid hash, a new one is generated
