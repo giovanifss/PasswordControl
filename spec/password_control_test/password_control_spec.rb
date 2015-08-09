@@ -5,7 +5,7 @@ describe PasswordControl do
 
 		# Default algorithm = Bcrypt
 		it "Default password test" do
-			@passControl = PasswordController.new :secret => "A really strong password"
+			@passControl = PasswordController.new :secret => "password"
 			expect(@passControl.prepareForSave[:algorithm]).to eql("bcrypt")
 		end
 
