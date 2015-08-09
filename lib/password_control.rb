@@ -19,9 +19,9 @@ class PasswordController
   attr_accessor :algorithmInstance
 
   #Secret is required. The rest is optional
-  def initialize contents = {:secret => secret}
+  def initialize contents = {}
     #Exception for secret == null
-    raise "Secret can't be null" if contents[:secret] == nil
+    raise "Must set a secret like this: PasswordController.new :secret => 'your secret'" if !contents.is_a?(Hash) || !contents[:secret]
 
     #Put setted and optional parameters together
     contents = PARAMETERS_DEFAULT.merge(contents)
